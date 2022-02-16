@@ -82,7 +82,9 @@ public class UploadContent {
 		
 		Thread.sleep(20000);
 		driver.findElement(By.xpath("//button[text()='New Course']")).click();
-		driver.findElement(By.xpath("//*[text()='Blank course']")).click();
+		WebElement element = new WebDriverWait(driver,30).until(ExpectedConditions.presenceOfElementLocated(By.xpath("//button[@class='styles_btn__1rfQ- Header_blankCourseButton__1K-zw']")));
+		element.click();
+		//driver.findElement(By.xpath("//*[text()='Blank course']")).click();
 	// Course tiltes //
 		System.out.println("Title name :"+toc.get("Title Name"));
 		Thread.sleep(15000);
@@ -206,7 +208,7 @@ public class UploadContent {
 					{
 						if(k==2)data.append("\n");
 						
-						data.append("\n"+"•	"+toc.get("Clip Section "+i+"."+j+":"+k));
+						data.append("\n"+"Â•	"+toc.get("Clip Section "+i+"."+j+":"+k));
 						listele=k;
 					}
 				}
@@ -287,7 +289,7 @@ public class UploadContent {
 			Thread.sleep(2000);
 			driver.findElement(By.xpath("//div[@class='blocks-sidebar__close']")).click();
 			Thread.sleep(2000);
-			driver.findElement(By.xpath("//div[@class='authoring-header__menu-close']")).click();
+			driver.findElement(By.xpath("//div[@class='authoring-header__menu-btn']")).click();
 			l++;
 			}
 		
